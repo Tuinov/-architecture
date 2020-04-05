@@ -1,0 +1,6 @@
+1. Найдите в коде паттерн Фабричный метод (Factory Method)
+и объясните, для чего он был применён
+
+protected function getProductRepository() в Order/Basket
+используется для создания репозитория продукта
+

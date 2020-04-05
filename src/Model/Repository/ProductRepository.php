@@ -38,7 +38,11 @@ class ProductRepository
     public function fetchAll(): array
     {
         $productList = [];
+//        не получается реализовать прототип! уже испробовал и __invoke и __clone  -
+//    ничего не помогает. только если делать публичными свойства Product  и менять их!!
+        //$product = new Product(0,'',1);
         foreach ($this->getDataFromSource() as $item) {
+            //$productList[] = clone $product(
             $productList[] = new Product(
                 $item['id'],
                 $item['name'],

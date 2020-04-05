@@ -104,9 +104,21 @@ class Basket
         // пользователя о покупке
         $communication = new Email();
 
+
+
         $security = new Security($this->session);
 
         $this->checkoutProcess($discount, $billing, $security, $communication);
+
+        $builder = new BasketBuilder();
+
+        $builder->setBilling($billing)
+            ->setDiscount($discount)
+            ->setCommunication($communication)
+            ->setSecurity($security);
+
+        $checkOut = new CheckOutProcess();
+        $checkOut->newOrder($builder);
     }
 
     /**
